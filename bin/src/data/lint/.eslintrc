@@ -1,0 +1,11 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/babel", "prettier/react"],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-props-no-spreading": [0]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "devondemand-generator",
+  "version": "1.0.0",
+  "description": "Generator for devondemand starters",
+  "main": "bin/index.js",
+  "preferGlobal": true,
+  "bin": {
+    "devondemand-generator": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^4.2.0",
+    "create-next-app": "^9.5.3",
+    "create-react-app": "^3.4.1",
+    "enquirer": "^2.3.6",
+    "execa": "^4.0.3",
+    "gatsby-cli": "^2.12.102",
+    "listr": "^0.14.3",
+    "pkg-install": "^1.0.0"
+  }
+}
