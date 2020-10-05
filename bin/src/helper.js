@@ -29,40 +29,45 @@ const generateMaterialUIRelatedFiles = (options) => {
 }
 
 const writeTofileinProject = (filePath, fileName, fileWithData) => {
-  filePath = (process.cwd() + filePath).replace(/\\/g, '/')
+  filePath = makedir(filePath)
   fileName = (filePath + '/' + fileName).replace(/\\/g, '/')
   fileWithData = path.resolve(__dirname, fileWithData).replace(/\\/g, '/')
   var data = fs.readFileSync(fileWithData, 'utf-8');
-  fs.mkdirSync(filePath, { recursive: true });
   fs.writeFileSync(fileName, data, 'utf-8', {flag: 'wx'});
   return true
+}
+
+const makedir = (filePath) => {
+  filePath = (process.cwd() + filePath).replace(/\\/g, '/')
+  fs.mkdirSync(filePath, { recursive: true });
+  return filePath
 }
 
 const addRequiredFolders = (options) => {
   return (new Promise((resolve,reject) => {
     try {
       if(options.technology === 'NextJS' || options.technology === 'Pure React') {
-        fs.mkdirSync('/' + options.appName + '/src/api', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/data', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/fonts', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/icons', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/images', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/components', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/features', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/helpers', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/reducer', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/themes', { recursive: true });
+        makedir('/' + options.appName + '/src/api');
+        makedir('/' + options.appName + '/src/assets/data');
+        makedir('/' + options.appName + '/src/assets/fonts');
+        makedir('/' + options.appName + '/src/assets/icons');
+        makedir('/' + options.appName + '/src/assets/images');
+        makedir('/' + options.appName + '/src/components');
+        makedir('/' + options.appName + '/src/features');
+        makedir('/' + options.appName + '/src/helpers');
+        makedir('/' + options.appName + '/src/reducer');
+        makedir('/' + options.appName + '/src/themes');
       } else if(options.technology === 'GatsbyJS') {
-        fs.mkdirSync('/' + options.appName + '/src/api', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/data', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/fonts', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/icons', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/assets/images', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/layouts', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/features', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/helpers', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/reducer', { recursive: true });
-        fs.mkdirSync('/' + options.appName + '/src/themes', { recursive: true });
+        makedir('/' + options.appName + '/src/api');
+        makedir('/' + options.appName + '/src/assets/data');
+        makedir('/' + options.appName + '/src/assets/fonts');
+        makedir('/' + options.appName + '/src/assets/icons');
+        makedir('/' + options.appName + '/src/assets/images');
+        makedir('/' + options.appName + '/src/layouts');
+        makedir('/' + options.appName + '/src/features');
+        makedir('/' + options.appName + '/src/helpers');
+        makedir('/' + options.appName + '/src/reducer');
+        makedir('/' + options.appName + '/src/themes');
       }
       writeTofileinProject('/' + options.appName, '.eslintignore', './data/lint/.eslintignore');
       writeTofileinProject('/' + options.appName, '.eslintrc', './data/lint/.eslintrc');

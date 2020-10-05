@@ -24,34 +24,34 @@ const startProcess = (options) => {
         })
       }
     }, 
-    {
-      title: 'Creating new React app and installing its dependencies',
-      enabled: () => options.technology === 'Pure React',
-      task: async() => {
-        return execa('./node_modules/.bin/create-react-app', [options.appName]).catch((e) => {
-          throw new Error(e);
-        })
-      }
-    },
+    // {
+    //   title: 'Creating new React app and installing its dependencies',
+    //   enabled: () => options.technology === 'Pure React',
+    //   task: async() => {
+    //     return execa('./node_modules/.bin/create-react-app', [options.appName]).catch((e) => {
+    //       throw new Error(e);
+    //     })
+    //   }
+    // },
     // IF material ui is enabled.. install material ui inside new project
-    {
-      title: 'Adding MaterialUI to your project',
-      enabled: () => options.library === 'Material UI',
-      task: () => install(
-        {
-          '@material-ui/core': undefined,
-          '@material-ui/icons': undefined,
-          ...( options.technology === 'GatsbyJS' ? {
-            'gatsby-plugin-material-ui': undefined,
-            'typeface-roboto': undefined
-          }:  {})
-        },
-        {
-          prefer: options.technology === 'GatsbyJS' ? 'npm': 'yarn',
-          cwd: options.appName
-        }
-      )
-    },
+    // {
+    //   title: 'Adding MaterialUI to your project',
+    //   enabled: () => options.library === 'Material UI',
+    //   task: () => install(
+    //     {
+    //       '@material-ui/core': undefined,
+    //       '@material-ui/icons': undefined,
+    //       ...( options.technology === 'GatsbyJS' ? {
+    //         'gatsby-plugin-material-ui': undefined,
+    //         'typeface-roboto': undefined
+    //       }:  {})
+    //     },
+    //     {
+    //       prefer: options.technology === 'GatsbyJS' ? 'npm': 'yarn',
+    //       cwd: options.appName
+    //     }
+    //   )
+    // },
     // IF material ui is enabled.. add related files and folders
     {
       title: 'Adding MaterialUI related files and folders to your project',
