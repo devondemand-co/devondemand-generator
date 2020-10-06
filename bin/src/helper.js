@@ -73,6 +73,7 @@ const addRequiredFolders = (options) => {
       writeTofileinProject('/' + options.appName, '.eslintrc', './data/lint/.eslintrc');
       writeTofileinProject('/' + options.appName, '.prettierignore', './data/lint/.prettierignore');
       writeTofileinProject('/' + options.appName, '.prettierrc', './data/lint/.prettierrc');
+      writeTofileinProject('/' + options.appName, 'jsconfig.json', './data/lint/jsconfig.json');
       resolve();
     } catch (error) {
       reject(error)

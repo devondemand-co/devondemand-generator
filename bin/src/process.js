@@ -66,6 +66,28 @@ const startProcess = (options) => {
         return addRequiredFolders(options)
       }
     },
+    {
+      title: 'Adding other required dev dependencies',
+      task: () => install(
+        {
+          "eslint": "^6.8.0",
+          "eslint-config-airbnb": "^18.2.0",
+          "eslint-config-airbnb-base": "^14.2.0",
+          "eslint-config-prettier": "^6.11.0",
+          "eslint-import-resolver-alias": "^1.1.2",
+          "eslint-plugin-import": "^2.22.1",
+          "eslint-plugin-jsx-a11y": "^6.3.1",
+          "eslint-plugin-react": "^7.20.3",
+          "eslint-plugin-react-hooks": "^2.5.1",
+          "prettier": "^2.0.5",
+        },
+        {
+          dev: true,
+          prefer: options.technology === 'GatsbyJS' ? 'npm': 'yarn',
+          cwd: options.appName
+        }
+      )
+    }
    
   ]);
 
