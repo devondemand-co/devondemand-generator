@@ -10,7 +10,7 @@ const startProcess = (options) => {
       title: 'Creating new GatsbyJs app and installing its dependencies',
       enabled: () => options.technology === 'GatsbyJS',
       task: async() => {
-        return execa('./node_modules/.bin/gatsby', ['new', options.appName, 'https://github.com/gatsbyjs/gatsby-starter-default']).catch((e) => {
+        return execa('./node_modules/.bin/gatsby', ['new', ('../' + options.appName), 'https://github.com/gatsbyjs/gatsby-starter-default']).catch((e) => {
           throw new Error(e);
         })
       }
@@ -19,7 +19,7 @@ const startProcess = (options) => {
       title: 'Creating new NextJs app and installing its dependencies',
       enabled: () => options.technology === 'NextJS',
       task: async() => {
-        return execa('./node_modules/.bin/create-next-app', [options.appName]).catch((e) => {
+        return execa('./node_modules/.bin/create-next-app', ['../' + options.appName]).catch((e) => {
           throw new Error(e);
         })
       }
@@ -28,7 +28,7 @@ const startProcess = (options) => {
       title: 'Creating new React app and installing its dependencies',
       enabled: () => options.technology === 'Pure React',
       task: async() => {
-        return execa('./node_modules/.bin/create-react-app', [options.appName]).catch((e) => {
+        return execa('./node_modules/.bin/create-react-app', ['../' + options.appName]).catch((e) => {
           throw new Error(e);
         })
       }
@@ -48,7 +48,7 @@ const startProcess = (options) => {
         },
         {
           prefer: options.technology === 'GatsbyJS' ? 'npm': 'yarn',
-          cwd: options.appName
+          cwd: '../' + options.appName
         }
       )
     },
@@ -84,7 +84,7 @@ const startProcess = (options) => {
         {
           dev: true,
           prefer: options.technology === 'GatsbyJS' ? 'npm': 'yarn',
-          cwd: options.appName
+          cwd: '../' + options.appName
         }
       )
     }

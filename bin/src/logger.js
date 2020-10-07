@@ -8,10 +8,9 @@ const initial = () => {
 }
 
 const end = (options) => {
-
   console.log(
     boxen(
-      (('To Start the Development Server Run: \n\ncd ' + options.appName + '\n') +
+      (('To Start the Development Server Run: \n\ncd ../' + options.appName + '\n') +
         (options.technology === 'Pure React' ? 'yarn start' : 'yarn dev')
       ),
     {padding: 0, margin: 1, borderStyle: 'classic', borderColor:'blue',}
