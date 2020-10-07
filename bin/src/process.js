@@ -71,6 +71,7 @@ const startProcess = (options) => {
       task: () => install(
         {
           "eslint": "^6.8.0",
+          "babel-eslint": "^10.1.0",
           "eslint-config-airbnb": "^18.2.0",
           "eslint-config-airbnb-base": "^14.2.0",
           "eslint-config-prettier": "^6.11.0",
