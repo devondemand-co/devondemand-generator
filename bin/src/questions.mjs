@@ -1,4 +1,5 @@
-const { prompt } = require('enquirer');
+import pkg  from 'enquirer';
+const {prompt} = pkg;
 
 const questions = [
   {
@@ -27,6 +28,6 @@ const askIntialQustions = async () => {
   return await prompt(questions)
 }
 
-module.exports = {
+export{
   askIntialQustions
 }
