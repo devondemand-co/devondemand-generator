@@ -2,7 +2,7 @@
   "name": "devondemand-generator",
   "version": "1.0.0",
   "description": "Generator for devondemand starters",
-  "main": "bin/index.js",
+  "main": "./bin/index.mjs",
   "preferGlobal": true,
   "bin": {
     "devondemand-generator": "bin/index.js"
@@ -13,12 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "boxen": "^4.2.0",
+    "babel-loader": "^7",
+    "boxen": "^6.2.1",
     "create-next-app": "^9.5.3",
-    "create-react-app": "^3.4.1",
+    "create-react-app": "^4.0.3",
     "enquirer": "^2.3.6",
     "execa": "^4.0.3",
-    "gatsby-cli": "^2.12.102",
+    "gatsby-cli": "^3.14.2",
     "listr": "^0.14.3",
     "pkg-install": "^1.0.0"
   }
